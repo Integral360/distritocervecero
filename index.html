@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distrito Cervecero - Menú</title>
+  <style>
+    :root{
+      --rojo:#950B18;
+      --verde:#2D5128;
+      --crema:#FBF3E1;
+      --grisverde:#A2B2A0;
+      --amarillo:#EFB810;
+      --negro:#111;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:var(--crema);
+      color:var(--negro);
+      font-family: Arial, sans-serif;
+      background-image:
+        radial-gradient(circle at top left, rgba(149,11,24,.10), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(45,81,40,.10), transparent 30%);
+    }
+
+    .menu{
+      max-width:1100px;
+      margin:auto;
+      padding:32px 22px 60px;
+    }
+
+    header{
+      text-align:center;
+      padding:35px 20px;
+      border-bottom:5px solid var(--rojo);
+      margin-bottom:34px;
+    }
+
+    .logo-text{
+      font-size:54px;
+      line-height:.95;
+      font-weight:900;
+      letter-spacing:3px;
+      color:var(--rojo);
+      text-transform:uppercase;
+    }
+
+    .sub-logo{
+      font-size:24px;
+      letter-spacing:5px;
+      color:var(--verde);
+      font-weight:700;
+      margin-top:8px;
+    }
+
+    .claim{
+      margin-top:16px;
+      font-size:18px;
+      color:#333;
+    }
+
+    .section{
+      margin-bottom:38px;
+    }
+
+    .section-title{
+      background:var(--verde);
+      color:white;
+      padding:14px 18px;
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      border-left:10px solid var(--amarillo);
+    }
+
+    .section-desc{
+      padding:10px 18px 18px;
+      font-size:16px;
+      color:#333;
+      font-style:italic;
+    }
+
+    .beer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:18px;
+    }
+
+    .beer-card{
+      background:white;
+      border:2px solid rgba(45,81,40,.18);
+      padding:18px;
+      border-radius:14px;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+
+    .beer-name{
+      font-size:25px;
+      font-weight:900;
+      color:var(--rojo);
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .beer-meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+
+    .tag{
+      background:var(--crema);
+      border:1px solid var(--grisverde);
+      color:var(--verde);
+      padding:5px 9px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .beer-desc{
+      font-size:15px;
+      line-height:1.45;
+      min-height:62px;
+      margin-bottom:15px;
+    }
+
+    .prices{
+      width:100%;
+      border-collapse:collapse;
+      font-size:14px;
+      overflow:hidden;
+      border-radius:10px;
+    }
+
+    .prices th{
+      background:var(--rojo);
+      color:white;
+      padding:8px;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+
+    .prices td{
+      background:#fafafa;
+      padding:8px;
+      text-align:center;
+      border-bottom:1px solid #eee;
+      font-weight:700;
+    }
+
+    .experience, .liquor, .cocktail{
+      background:white;
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      margin-bottom:18px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:14px;
+      align-items:center;
+      padding:10px 0;
+      border-bottom:1px dashed #ccc;
+    }
+
+    .row:last-child{border-bottom:0}
+
+    .item-name{
+      font-weight:900;
+      color:var(--verde);
+      text-transform:uppercase;
+    }
+
+    .item-price{
+      font-weight:900;
+      color:var(--rojo);
+      font-size:18px;
+    }
+
+    .liquor-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+    }
+
+    .liquor-table th{
+      background:var(--verde);
+      color:white;
+      padding:10px;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+    .liquor-table td{
+      padding:10px;
+      border-bottom:1px solid #eee;
+      text-align:center;
+      font-weight:700;
+    }
+
+    .liquor-table td:first-child{
+      text-align:left;
+      color:var(--rojo);
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    footer{
+      text-align:center;
+      margin-top:35px;
+      padding:22px;
+      background:var(--rojo);
+      color:white;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    @media print{
+      body{background:white}
+      .beer-card,.experience,.liquor,.cocktail{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="menu">
+
+    <header>
+      <div class="logo-text">Distrito</div>
+      <div class="sub-logo">Cervecero</div>
+      <div class="claim">Cultura cervecera · Amigos · Deportes</div>
+      <p>Un espacio pensado para compartir alrededor de la cerveza artesanal.</p>
+    </header>
+
+    <section class="section">
+      <div class="section-title">Distrito Clásico</div>
+      <div class="section-desc">Cervezas ligeras y refrescantes. Perfectas para empezar la noche y compartir.</div>
+
+      <div class="beer-grid">
+        <article class="beer-card">
+          <div class="beer-name">Golden Ale</div>
+          <div class="beer-meta"><span class="tag">4.6% Alc. Vol.</span><span class="tag">Amargor medio</span></div>
+          <div class="beer-desc">Rubia, refrescante con notas cítricas.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$8.000</td><td>$10.000</td><td>$15.000</td><td>$28.000</td><td>$82.000</td></tr></table>
+        </article>
+
+        <article class="beer-card">
+          <div class="beer-name">Amber Ale</div>
+          <div class="beer-meta"><span class="tag">4.8% Alc. Vol.</span><span class="tag">Amargor medio-alto</span></div>
+          <div class="beer-desc">Roja, sabor a malta y notas de caramelo.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$8.000</td><td>$10.000</td><td>$15.000</td><td>$28.000</td><td>$82.000</td></tr></table>
+        </article>
+
+        <article class="beer-card">
+          <div class="beer-name">Criolla</div>
+          <div class="beer-meta"><span class="tag">5.0% Alc. Vol.</span><span class="tag">Amargor medio-alto</span></div>
+          <div class="beer-desc">Explosión tropical y cítrica con un final refrescante que te pide otro sorbo.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$8.000</td><td>$10.000</td><td>$15.000</td><td>$28.000</td><td>$82.000</td></tr></table>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Distrito Reserva</div>
+      <div class="section-desc">Cervezas con mayor cuerpo, maltas tostadas y perfiles más complejos.</div>
+
+      <div class="beer-grid">
+        <article class="beer-card">
+          <div class="beer-name">Session IPA</div>
+          <div class="beer-meta"><span class="tag">4.5% Alc. Vol.</span><span class="tag">Amargor medio-alto</span></div>
+          <div class="beer-desc">Rubia, lupulada y refrescante con notas cítricas y frutales.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$9.000</td><td>$12.000</td><td>$17.000</td><td>$32.000</td><td>$92.000</td></tr></table>
+        </article>
+
+        <article class="beer-card">
+          <div class="beer-name">Morena Porter</div>
+          <div class="beer-meta"><span class="tag">6.0% Alc. Vol.</span><span class="tag">Amargor medio</span></div>
+          <div class="beer-desc">Notas de café y chocolate en una cerveza oscura, cremosa y sorprendentemente fácil de tomar.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$9.000</td><td>$12.000</td><td>$17.000</td><td>$32.000</td><td>$92.000</td></tr></table>
+        </article>
+
+        <article class="beer-card">
+          <div class="beer-name">Miel Maracuyá</div>
+          <div class="beer-meta"><span class="tag">5.5% Alc. Vol.</span><span class="tag">Amargor bajo</span></div>
+          <div class="beer-desc">Suave, fresca, llena de maracuyá, el sabor perfecto para relajarte y compartir.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$9.000</td><td>$12.000</td><td>$17.000</td><td>$32.000</td><td>$92.000</td></tr></table>
+        </article>
+
+        <article class="beer-card">
+          <div class="beer-name">IPA</div>
+          <div class="beer-meta"><span class="tag">6.2% Alc. Vol.</span><span class="tag">Amargor alto</span></div>
+          <div class="beer-desc">Rubia, lupulada y refrescante, con notas cítricas, moderadamente fuerte.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$9.000</td><td>$12.000</td><td>$17.000</td><td>$32.000</td><td>$92.000</td></tr></table>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Distrito Maestro</div>
+      <div class="section-desc">Los estilos más intensos y especiales de la casa. Mayor carácter, aroma y alcohol.</div>
+
+      <div class="beer-grid">
+        <article class="beer-card">
+          <div class="beer-name">Honey</div>
+          <div class="beer-meta"><span class="tag">10% Alc. Vol.</span><span class="tag">Amargor medio-bajo</span></div>
+          <div class="beer-desc">Potente, cálida y ligeramente dulce, una cerveza para disfrutar lento y descubrir cada capa de sabor.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$10.000</td><td>$13.000</td><td>$19.000</td><td>$36.000</td><td>$105.000</td></tr></table>
+        </article>
+
+        <article class="beer-card">
+          <div class="beer-name">Barley Wine</div>
+          <div class="beer-meta"><span class="tag">10% Alc. Vol.</span><span class="tag">Amargor alto</span></div>
+          <div class="beer-desc">Maltosa, notas dulces acarameladas.</div>
+          <table class="prices"><tr><th>Cata</th><th>Vaso</th><th>Pinta</th><th>Jarra</th><th>Jirafa</th></tr><tr><td>$10.000</td><td>$13.000</td><td>$19.000</td><td>$36.000</td><td>$105.000</td></tr></table>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Experiencias Cerveceras</div>
+      <div class="section-desc">Pide tu tabla de degustación y disfruta 5 o 10 estilos cerveceros en una sola experiencia.</div>
+      <div class="experience">
+        <div class="row"><div class="item-name">5 estilos</div><div class="item-price">$33.000</div></div>
+        <div class="row"><div class="item-name">10 estilos</div><div class="item-price">$67.000</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Licores</div>
+
+      <div class="liquor">
+        <h3>Aguardiente</h3>
+        <table class="liquor-table">
+          <tr><th>Producto</th><th>Shot</th><th>Media</th><th>Botella</th></tr>
+          <tr><td>Nariño</td><td>-</td><td>$70.000</td><td>$130.000</td></tr>
+          <tr><td>Amarillo</td><td>-</td><td>$70.000</td><td>$130.000</td></tr>
+          <tr><td>Antioqueño</td><td>-</td><td>-</td><td>-</td></tr>
+        </table>
+      </div>
+
+      <div class="liquor">
+        <h3>Vodka</h3>
+        <table class="liquor-table">
+          <tr><th>Producto</th><th>Shot</th><th>Media</th><th>Botella</th></tr>
+          <tr><td>Absolut Vodka</td><td>$20.000</td><td>-</td><td>$130.000</td></tr>
+        </table>
+      </div>
+
+      <div class="liquor">
+        <h3>Otros</h3>
+        <table class="liquor-table">
+          <tr><th>Producto</th><th>Shot</th><th>Media</th><th>Botella</th></tr>
+          <tr><td>Ron Viejo de Caldas</td><td>$18.000</td><td>$70.000</td><td>$130.000</td></tr>
+          <tr><td>Brandy Domeq</td><td>$18.000</td><td>$70.000</td><td>$130.000</td></tr>
+          <tr><td>Jägermeister</td><td>$20.000</td><td>-</td><td>$199.000</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Coctelería</div>
+      <div class="cocktail">
+        <div class="row"><div class="item-name">Maracuyá Sour</div><div class="item-price">$15.000</div></div>
+      </div>
+    </section>
+
+    <footer>
+      DISTRITO CERVECERO · ESTD 2026
+    </footer>
+
+  </main>
+</body>
+</html>
