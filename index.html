@@ -778,6 +778,86 @@
       border:2px solid rgba(251,243,225,.55);
     }
 
+
+    .social-section{
+      margin:48px 0 10px;
+      border-radius:34px;
+      padding:34px 22px;
+      color:white;
+      text-align:center;
+      box-shadow:var(--shadow);
+      background:
+      linear-gradient(135deg,rgba(9,9,9,.88),rgba(45,81,40,.82),rgba(149,11,24,.72));
+      position:relative;
+      overflow:hidden;
+    }
+
+    .social-section::before{
+      content:"Síguenos";
+      position:absolute;
+      right:-10px;
+      bottom:-18px;
+      font-family:'Anton';
+      font-size:80px;
+      opacity:.08;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .social-section h2{
+      position:relative;
+      z-index:1;
+      font-family:'Anton';
+      color:var(--dorado);
+      text-transform:uppercase;
+      font-size:clamp(36px,6vw,62px);
+      line-height:1;
+      letter-spacing:2px;
+      margin-bottom:10px;
+    }
+
+    .social-section p{
+      position:relative;
+      z-index:1;
+      font-size:18px;
+      color:rgba(251,243,225,.9);
+      margin-bottom:20px;
+    }
+
+    .social-links{
+      position:relative;
+      z-index:1;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .social-link{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(251,243,225,.12);
+      border:1px solid rgba(251,243,225,.28);
+      color:white;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      transition:.25s ease;
+      backdrop-filter:blur(8px);
+    }
+
+    .social-link:hover{
+      transform:translateY(-3px);
+      background:var(--dorado);
+      color:#111;
+      border-color:var(--dorado);
+    }
+
+
     @media(max-width:860px){
       .intro-band{grid-template-columns:1fr}
       .section-head{grid-template-columns:1fr}
@@ -868,6 +948,7 @@
         <a class="nav-normal" href="#experiencias">Experiencias</a>
         <a class="nav-normal" href="#licores">Licores</a>
         <a class="nav-normal" href="#cocteleria">Coctelería</a>
+        <a class="nav-normal" href="#redes">Redes</a>
       </div>
     </nav>
 
@@ -1133,6 +1214,21 @@
       </div>
     </section>
 
+
+    <section class="social-section" id="redes">
+      <h2>Síguenos</h2>
+      <p>Conoce eventos, lanzamientos, promociones y nuevas experiencias cerveceras.</p>
+
+      <div class="social-links">
+        <!-- Cambia estos enlaces por los reales del negocio -->
+        <a class="social-link" href="https://www.instagram.com/otrapolaporfavor?igsh=MWttNTJ1eGFyc29heQ==" target="_blank" rel="noopener">📷 Instagram</a>
+        <a class="social-link" href="https://www.facebook.com/share/1b8Kt3Vtv1/?mibextid=wwXIfr">👍 Facebook</a>
+        <a class="social-link" href="https://www.tiktok.com/@distrito.cervecero?_r=1&_t=ZS-96mN7LIalB1" target="_blank" rel="noopener">🎵 TikTok</a>
+        <a class="social-link" href="https://wa.me/573000000000 <!-- EDITAR: WhatsApp real -->" target="_blank" rel="noopener">☏ WhatsApp</a>
+        <a class="social-link" href="https://maps.google.com" target="_blank" rel="noopener">📍 Ubicación</a>
+      </div>
+    </section>
+
     <footer class="footer">
       <img class="footer-logo" src="logofondo.jpg" alt="Distrito Cervecero">
       <strong>Distrito Cervecero</strong>
@@ -1141,7 +1237,7 @@
     </footer>
   </main>
 
-  <a class="whatsapp" href="https://wa.me/573000000000" target="_blank" aria-label="WhatsApp">☏</a>
+  <a class="whatsapp" href="https://wa.me/573000000000 <!-- EDITAR: WhatsApp real -->" target="_blank" aria-label="WhatsApp">☏</a>
 
   <script>
     const loader = document.getElementById("loader");
